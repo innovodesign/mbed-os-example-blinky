@@ -1,0 +1,66 @@
+{
+    "TAMARILLO_767": {
+        "inherits": [
+            "FAMILY_STM32"
+        ],
+        "components_add": [
+            "FLASHIAP"
+        ],
+        "core": "Cortex-M7FD",
+        "extra_labels_add": [
+            "STM32F7",
+            "STM32F767xI",
+            "STM32F767ZI"
+        ],
+        "config": {
+            "flash_dual_bank": {
+                "help": "Default board configuration is Single Bank Flash. If you enable Dual Bank with ST Link Utility, set value to 1",
+                "value": "0"
+            },
+            "d11_configuration": {
+                "help": "Value: PA_7 for the default board configuration, PB_5 in case of solder bridge update (SB121 off/ SB122 on)",
+                "value": "PA_7",
+                "macro_name": "STM32_D11_SPI_ETHERNET_PIN"
+            },
+            "clock_source": {
+                "help": "Mask value : USE_PLL_HSE_EXTC | USE_PLL_HSE_XTAL (need HW patch) | USE_PLL_HSI",
+                "value": "USE_PLL_HSE_EXTC|USE_PLL_HSI",
+                "macro_name": "CLOCK_SOURCE"
+            },
+            "lpticker_lptim": {
+                "help": "This target supports LPTIM. Set value 1 to use LPTIM for LPTICKER, or 0 to use RTC wakeup timer",
+                "value": 1
+            }
+        },
+        "supported_form_factors": [
+        ],
+        "macros_add": [
+            "STM32F767xx",
+            "MBED_TICKLESS",
+            "EXTRA_IDLE_STACK_REQUIRED"
+        ],
+        "detect_code": [
+            "0818"
+        ],
+        "device_has_add": [
+            "ANALOGOUT",
+            "CAN",
+            "CRC",
+            "EMAC",
+            "SERIAL_ASYNCH",
+            "TRNG",
+            "FLASH",
+            "USBDEVICE",
+            "MPU"
+        ],
+        "release_versions": [
+            "5"
+        ],
+        "device_name": "STM32F767ZI",
+        "bootloader_supported": true,
+        "overrides": {
+            "lpticker_delay_ticks": 0,
+            "network-default-interface-type": "ETHERNET"
+        }
+    }
+}
